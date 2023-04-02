@@ -56,32 +56,26 @@ fun BirthdayGreetingWithImage(message: String, from: String) {
 }
 
 @Composable
-fun BirthdayGreetingWithText(message: String, from: String) {
-    Column {
+fun BirthdayGreetingWithText(message: String, from: String, modifier: Modifier = Modifier) {
+    // Create a column so that texts don't overlap
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
         Text(
             text = message,
             fontSize = 36.sp,
             modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentWidth(
-                    align = Alignment.Start
-                )
-                .padding(
-                    start = 16.dp, top = 16.dp
-                )
+                .padding(top = 16.dp)
         )
         Text(
             text = from,
-            fontSize = 25.sp,
+            fontSize = 24.sp,
             modifier = Modifier
-                .fillMaxWidth()
-                .wrapContentWidth(align = Alignment.End)
-                .padding(
-                    start = 16.dp, end = 16.dp
-                )
+                .padding(top = 16.dp)
         )
     }
-
 }
 
 @Preview(showBackground = true)
